@@ -2,15 +2,22 @@ import React, { useEffect, useMemo, useState,useRef } from 'react';
 import User from './User';
 import Student from './Student';
 //UseState😀
-// function App() {
-//   const[data,setdata] = useState("Nikhil");
-//   return (
-//     <>
-//     <h1>Hooks {data}</h1>
-//     <button onClick={()=>setdata("Jain")}>Update Data</button>
-//     </>
-//   );
-// }
+function App() {
+  const[Counter,setCounter] = useState(0);
+  const increment = () =>{
+    setCounter(Counter + 1);
+  }
+  const decrement = () =>{
+    setCounter(Counter - 1);
+  }
+  return (
+    <>
+    <h1>Hooks {Counter}</h1>
+    <button onClick={increment}>Increment</button>
+    <button onClick={decrement}>Decrement</button>
+    </>
+  );
+}
 
 
 // useEfffect😎
@@ -73,17 +80,17 @@ import Student from './Student';
 // }
 
 //Forward Ref 💛🧡💚💙
-function App(){
-  let inputRef = useRef(null);
-  function HandleInput(){
-    inputRef.current.value="1000";
-  }
-  return(
-    <>
-      <h1>Forward Ref</h1>
-      <Student ref={inputRef}/>
-      <button onClick={HandleInput}>Update Input</button>
-    </>
-  );
-}
+// function App(){
+//   let inputRef = useRef(null);
+//   function HandleInput(){
+//     inputRef.current.value="1000";
+//   }
+//   return(
+//     <>
+//       <h1>Forward Ref</h1>
+//       <Student ref={inputRef}/>
+//       <button onClick={HandleInput}>Update Input</button>
+//     </>
+//   );
+// }
 export default App;
