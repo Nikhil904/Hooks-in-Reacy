@@ -89,21 +89,21 @@ import Student from "./Student";
 // }
 
 //useRef🧡❤❤
-function App(){
-  let inputRef = useRef(null);
-  function handleinput(){
-    inputRef.current.value="Nikhil";
-    inputRef.current.focus();
-    inputRef.current.style.color="blue";
-  }
-  return(
-    <>
-      <h1>useRef in React Hook</h1>
-      <input type='text' ref={inputRef} />
-      <button onClick={handleinput}>Click Me</button>
-    </>
-  );
-}
+// function App(){
+//   let inputRef = useRef(null);
+//   function handleinput(){
+//     inputRef.current.value="Nikhil";
+//     inputRef.current.focus();
+//     inputRef.current.style.color="blue";
+//   }
+//   return(
+//     <>
+//       <h1>useRef in React Hook</h1>
+//       <input type='text' ref={inputRef} />
+//       <button onClick={handleinput}>Click Me</button>
+//     </>
+//   );
+// }
 
 //Forward Ref 💛🧡💚💙
 // function App(){
