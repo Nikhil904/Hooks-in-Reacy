@@ -1,45 +1,72 @@
-import React, { useEffect, useMemo, useState,useRef } from 'react';
+import React, { useEffect, useMemo, useState,useRef,useReducer } from 'react';
 import User from './User';
 import Student from './Student';
 //UseState😀
-function App() {
-  const[Counter,setCounter] = useState(0);
-  const increment = () =>{
-    setCounter(Counter + 1);
-  }
-  const decrement = () =>{
-    setCounter(Counter - 1);
-  }
-  return (
-    <>
-    <h1>Hooks {Counter}</h1>
-    <button onClick={increment}>Increment</button>
-    <button onClick={decrement}>Decrement</button>
-    </>
-  );
-}
-
-
-// useEfffect😎
-// function App(){
-//   const[data,setdata] = useState(10);
-//   const[count,setcount] = useState(100);
-//   useEffect(()=>{
-//     console.log('Call for count')
-//   },[count])
-//   useEffect(()=>{
-//     console.log('call for data')
-//   },[data])
-//   return(
+// function App() {
+//   const[Counter,setCounter] = useState(0);
+//   const increment = () =>{
+//     setCounter(Counter + 1);
+//   }
+//   const decrement = () =>{
+//     setCounter(Counter - 1);
+//   }
+//   return (
 //     <>
-//       {/* <h1>Count: {count}</h1>
-//       <h1>Data: {data}</h1> */}
-//       <User data={data} count={count}/>
-//       <button onClick={()=>setcount(count + 1)}>Update Count</button>
-//       <button onClick={()=>setdata(data + 1)}>Update Data</button>
+//     <h1>Hooks {Counter}</h1>
+//     <button onClick={increment}>Increment</button>
+//     <button onClick={decrement}>Decrement</button>
 //     </>
 //   );
 // }
+
+
+//useReducer
+// function App(){
+//   const reducer = (state,action) =>{
+//     switch(action.type){
+//       case "INCREMENT":
+//       return {count:state.count + 1,showtext: state.showtext}
+//       case "TOGGLE":
+//       return {count:state.count,showtext:!state.showtext}
+//       default:
+//         return state;
+//     }
+
+//   };
+//   const[state,dispatch] = useReducer(reducer, {count:0,showtext:true})
+//   return(
+//     <>
+//       <h1>useReducer</h1>
+//       <h1>{state.count}</h1>
+//       <button onClick={()=>{
+//         dispatch({type:"INCREMENT"});
+//         dispatch({type:"TOGGLE"});
+//       }}>Counter</button>
+//       {state.showtext && <p>This is Dummy Text</p>}
+//     </>
+//   );
+// }
+
+// useEfffect😎
+function App(){
+  const[data,setdata] = useState(10);
+  const[count,setcount] = useState(100);
+  useEffect(()=>{
+    console.log('Call for count')
+  },[count])
+  useEffect(()=>{
+    console.log('call for data')
+  },[data])
+  return(
+    <>
+      {/* <h1>Count: {count}</h1>
+      <h1>Data: {data}</h1> */}
+      <User data={data} count={count}/>
+      <button onClick={()=>setcount(count + 1)}>Update Count</button>
+      <button onClick={()=>setdata(data + 1)}>Update Data</button>
+    </>
+  );
+}
 
 // useMemo
 // function App(){
