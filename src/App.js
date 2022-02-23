@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState,useRef,useReducer } from 'react';
-import User from './User';
-import Student from './Student';
+import React, { useEffect, useMemo, useState, useRef, useReducer } from "react";
+import User from "./User";
+import Student from "./Student";
 //UseState😀
 // function App() {
 //   const[Counter,setCounter] = useState(0);
@@ -18,7 +18,6 @@ import Student from './Student';
 //     </>
 //   );
 // }
-
 
 //useReducer
 // function App(){
@@ -48,25 +47,25 @@ import Student from './Student';
 // }
 
 // useEfffect😎
-function App(){
-  const[data,setdata] = useState(10);
-  const[count,setcount] = useState(100);
-  useEffect(()=>{
-    console.log('Call for count')
-  },[count])
-  useEffect(()=>{
-    console.log('call for data')
-  },[data])
-  return(
-    <>
-      {/* <h1>Count: {count}</h1>
-      <h1>Data: {data}</h1> */}
-      <User data={data} count={count}/>
-      <button onClick={()=>setcount(count + 1)}>Update Count</button>
-      <button onClick={()=>setdata(data + 1)}>Update Data</button>
-    </>
-  );
-}
+// function App(){
+//   const[data,setdata] = useState(10);
+//   const[count,setcount] = useState(100);
+//   useEffect(()=>{
+//     console.log('Call for count')
+//   },[count])
+//   useEffect(()=>{
+//     console.log('call for data')
+//   },[data])
+//   return(
+//     <>
+//       {/* <h1>Count: {count}</h1>
+//       <h1>Data: {data}</h1> */}
+//       <User data={data} count={count}/>
+//       <button onClick={()=>setcount(count + 1)}>Update Count</button>
+//       <button onClick={()=>setdata(data + 1)}>Update Data</button>
+//     </>
+//   );
+// }
 
 // useMemo
 // function App(){
@@ -89,22 +88,22 @@ function App(){
 
 // }
 
-//Input Ref🧡❤❤
-// function App(){
-//   let inputRef = useRef(null);
-//   function handleinput(){
-//     inputRef.current.value="Nikhil";
-//     inputRef.current.focus();
-//     inputRef.current.style.color="blue";
-//   }
-//   return(
-//     <>
-//       <h1>useRef in React Hook</h1>
-//       <input type='text' ref={inputRef} />
-//       <button onClick={handleinput}>Click Me</button>
-//     </>
-//   );
-// }
+//useRef🧡❤❤
+function App(){
+  let inputRef = useRef(null);
+  function handleinput(){
+    inputRef.current.value="Nikhil";
+    inputRef.current.focus();
+    inputRef.current.style.color="blue";
+  }
+  return(
+    <>
+      <h1>useRef in React Hook</h1>
+      <input type='text' ref={inputRef} />
+      <button onClick={handleinput}>Click Me</button>
+    </>
+  );
+}
 
 //Forward Ref 💛🧡💚💙
 // function App(){
