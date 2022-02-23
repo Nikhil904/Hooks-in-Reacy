@@ -1,4 +1,11 @@
-import React, { useEffect, useMemo, useState, useRef, useReducer } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useState,
+  useRef,
+  useReducer,
+  useLayoutEffect,
+} from "react";
 import User from "./User";
 import Student from "./Student";
 //UseState😀
@@ -67,6 +74,39 @@ import Student from "./Student";
 //   );
 // }
 
+//useRef🧡❤❤
+// function App(){
+//   let inputRef = useRef(null);
+//   function handleinput(){
+//     inputRef.current.value="Nikhil";
+//     inputRef.current.focus();
+//     inputRef.current.style.color="blue";
+//   }
+//   return(
+//     <>
+//       <h1>useRef in React Hook</h1>
+//       <input type='text' ref={inputRef} />
+//       <button onClick={handleinput}>Click Me</button>
+//     </>
+//   );
+// }
+
+// useLayoutEffect💥💢💢💥
+function App() {
+  const inputRef = useRef();
+  useLayoutEffect(()=>{
+console.log(inputRef.current.value);
+  },[])
+  useEffect(()=>{
+    inputRef.current.value="Hello";
+  },[])
+  return (
+    <>
+      <input type="text" ref={inputRef} value="Nikhil" />
+    </>
+  );
+}
+
 // useMemo
 // function App(){
 //   const[count,setcount] = useState(0);
@@ -86,23 +126,6 @@ import Student from "./Student";
 //     </>
 //   );
 
-// }
-
-//useRef🧡❤❤
-// function App(){
-//   let inputRef = useRef(null);
-//   function handleinput(){
-//     inputRef.current.value="Nikhil";
-//     inputRef.current.focus();
-//     inputRef.current.style.color="blue";
-//   }
-//   return(
-//     <>
-//       <h1>useRef in React Hook</h1>
-//       <input type='text' ref={inputRef} />
-//       <button onClick={handleinput}>Click Me</button>
-//     </>
-//   );
 // }
 
 //Forward Ref 💛🧡💚💙
