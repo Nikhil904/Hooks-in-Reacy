@@ -5,9 +5,8 @@ import React, {
   useRef,
   useReducer,
   useLayoutEffect,
+  useImperativeHandle,
 } from "react";
-import User from "./User";
-import Student from "./Student";
 //UseState😀
 // function App() {
 //   const[Counter,setCounter] = useState(0);
@@ -27,31 +26,39 @@ import Student from "./Student";
 // }
 
 //useReducer
-// function App(){
-//   const reducer = (state,action) =>{
-//     switch(action.type){
-//       case "INCREMENT":
-//       return {count:state.count + 1,showtext: state.showtext}
-//       case "TOGGLE":
-//       return {count:state.count,showtext:!state.showtext}
-//       default:
-//         return state;
-//     }
+function App() {
+  const initialState = {
+    count: 0,
+    showText:true
+  }
 
-//   };
-//   const[state,dispatch] = useReducer(reducer, {count:0,showtext:true})
-//   return(
-//     <>
-//       <h1>useReducer</h1>
-//       <h1>{state.count}</h1>
-//       <button onClick={()=>{
-//         dispatch({type:"INCREMENT"});
-//         dispatch({type:"TOGGLE"});
-//       }}>Counter</button>
-//       {state.showtext && <p>This is Dummy Text</p>}
-//     </>
-//   );
-// }
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "INCREMENT":
+        return { count: state.count + 1, showtext: state.showtext };
+      case "TOGGLE":
+        return { count: state.count, showtext: !state.showtext };
+      default:
+        return state;
+    }
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (
+    <>
+      <h1>useReducer</h1>
+      <h1>{state.count}</h1>
+      <button
+        onClick={() => {
+          dispatch({ type: "INCREMENT" });
+          dispatch({ type: "TOGGLE" });
+        }}
+      >
+        Counter
+      </button>
+      {state.showtext && <p>This is Dummy Text</p>}
+    </>
+  );
+}
 
 // useEfffect😎
 // function App(){
@@ -92,21 +99,29 @@ import Student from "./Student";
 // }
 
 // useLayoutEffect💥💢💢💥
-function App() {
-  const inputRef = useRef();
-  useLayoutEffect(()=>{
-console.log(inputRef.current.value);
-  },[])
-  useEffect(()=>{
-    inputRef.current.value="Hello";
-  },[])
-  return (
-    <>
-      <input type="text" ref={inputRef} value="Nikhil" />
-    </>
-  );
-}
+// function App() {
+//   const inputRef = useRef();
+//   useLayoutEffect(()=>{
+// console.log(inputRef.current.value);
+//   },[])
+//   useEffect(()=>{
+//     inputRef.current.value="Hello";
+//   },[])
+//   return (
+//     <>
+//       <input type="text" ref={inputRef} value="Nikhil" />
+//     </>
+//   );
+// }
 
+// useContext❌❌❌❌❌❌
+// function App() {
+//   return (
+//     <>
+//       <h1>useContxt</h1>
+//     </>
+//   );
+// }
 // useMemo
 // function App(){
 //   const[count,setcount] = useState(0);
